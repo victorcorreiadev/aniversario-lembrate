@@ -19,7 +19,7 @@ import {
 } from "../src/lib/email-templates.ts";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const TO = "victorcorreia019va@gmail.com";
+const TO = "contato@victorcorreia.dev";
 const FROM = "Aniversário Victor <onboarding@resend.dev>";
 const NAME = "Victor";
 const EVENT_DATE_FORMATTED = "01 de Maio de 2026";

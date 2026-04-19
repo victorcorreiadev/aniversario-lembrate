@@ -10,49 +10,44 @@ function ThankYouContent() {
   const attending = params.get("attending") === "true";
 
   return (
-    <main className="min-h-screen bg-[#0f0a1e] flex flex-col items-center justify-center px-4 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-violet-700/20 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-pink-700/20 blur-[120px]" />
-      </div>
-
-      <div className="relative z-10 w-full max-w-lg text-center">
-        <div className="text-7xl mb-6 float-animation inline-block">
-          {attending ? "🥳" : "💜"}
+    <main className="min-h-screen bg-[#f5f0e8] flex flex-col items-center justify-center px-4">
+      <div className="w-full max-w-lg text-center">
+        <div className="text-7xl mb-6 inline-block">
+          {attending ? "🥳" : "💚"}
         </div>
 
-        <h1 className="text-4xl font-bold text-white mb-3 tracking-tight">
+        <h1 className="text-4xl font-bold text-gray-900 mb-3 tracking-tight">
           {attending ? "Incrível!" : "Tudo bem!"}
         </h1>
 
-        <p className="text-gray-300 text-lg mb-2">
+        <p className="text-gray-700 text-lg mb-2">
           {attending
             ? `${name.split(" ")[0]}, mal posso esperar te ver!`
             : `${name.split(" ")[0]}, que pena que não vai conseguir.`}
         </p>
 
-        <p className="text-gray-500 text-base mb-10">
+        <p className="text-gray-400 text-base mb-10">
           {attending
             ? "Você vai receber lembretes por email faltando 7 dias, 3 dias e no dia do evento."
             : "Obrigado por ter respondido. Guardei seus dados para caso as coisas mudem!"}
         </p>
 
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8 text-left">
-          <p className="text-gray-500 text-xs uppercase tracking-widest mb-3">
+        <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-8 text-left">
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-3">
             Detalhes do evento
           </p>
           <div className="flex items-center gap-3">
             <span className="text-2xl">📅</span>
             <div>
-              <p className="text-white font-semibold">01 de Maio de 2026</p>
-              <p className="text-gray-500 text-sm">Aniversário do Victor</p>
+              <p className="text-gray-900 font-semibold">01 de Maio de 2026</p>
+              <p className="text-gray-400 text-sm">Aniversário do Victor</p>
             </div>
           </div>
         </div>
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-violet-400 hover:text-violet-300 transition"
+          className="inline-flex items-center gap-2 text-sm text-[#8a9a7b] hover:text-[#6a7a5b] transition"
         >
           ← Voltar para o início
         </Link>
