@@ -112,6 +112,14 @@ export function reminderEmail(
     ? `Hoje é o dia do evento! Nos vemos mais tarde, ${name}`
     : `Oi, ${name}! Só passando para lembrar que o aniversário do Victor está chegando. Faltam apenas <strong style="color:#6a7a5b;">${daysLeft} dia${daysLeft > 1 ? "s" : ""}</strong> para o evento!`;
 
+  const confirmButton = isDayOf
+    ? `<div style="text-align:center;margin-top:24px;">
+      <a href="${process.env.NEXT_PUBLIC_APP_URL ?? "https://aniversario-lembrate.up.railway.app"}" style="display:inline-block;background-color:#8a9a7b;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:14px 32px;border-radius:10px;">
+        Confirmar presença
+      </a>
+    </div>`
+    : "";
+
   return base(`
     <p style="color:#1a1a1a;font-size:18px;margin:0 0 8px;font-weight:700;">${headline}</p>
     <p style="color:#6b7280;font-size:15px;line-height:1.7;margin:0 0 24px;">${messageFormatted}</p>
@@ -119,5 +127,6 @@ export function reminderEmail(
       <p style="color:rgba(255,255,255,0.85);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 4px;">Data do evento</p>
       <p style="color:#ffffff;font-size:22px;font-weight:700;margin:0;">${eventDateFormatted}</p>
     </div>
+    ${confirmButton}
   `);
 }
