@@ -96,10 +96,42 @@ export function ownerNotificationEmail(
   `);
 }
 
+export function ownerDayConfirmationEmail(
+  guestName: string,
+  guestEmail: string
+): string {
+  return base(`
+    <p style="color:#1a1a1a;font-size:16px;margin:0 0 20px;">Confirmação de presença no dia:</p>
+    <div style="background-color:#f5f0e8;border:1px solid #e5e1d8;border-radius:12px;padding:24px;margin-bottom:20px;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="padding-bottom:12px;">
+            <p style="color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;margin:0 0 4px;">Nome</p>
+            <p style="color:#1a1a1a;font-size:16px;font-weight:600;margin:0;">${guestName}</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom:12px;">
+            <p style="color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;margin:0 0 4px;">Email</p>
+            <p style="color:#1a1a1a;font-size:16px;margin:0;">${guestEmail}</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;margin:0 0 4px;">Status</p>
+            <p style="color:#22c55e;font-size:16px;font-weight:700;margin:0;">✅ CONFIRMOU PRESENÇA NO DIA</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  `);
+}
+
 export function reminderEmail(
   name: string,
   daysLeft: number,
-  eventDateFormatted: string
+  eventDateFormatted: string,
+  guestId?: string
 ): string {
   const isDayOf = daysLeft === 0;
   const headline = isDayOf
@@ -112,10 +144,11 @@ export function reminderEmail(
     ? `Hoje é o dia do evento! Nos vemos mais tarde, ${name}`
     : `Oi, ${name}! Só passando para lembrar que o aniversário do Victor está chegando. Faltam apenas <strong style="color:#6a7a5b;">${daysLeft} dia${daysLeft > 1 ? "s" : ""}</strong> para o evento!`;
 
-  const confirmButton = isDayOf
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://aniversario-lembrate-production.up.railway.app";
+  const confirmButton = isDayOf && guestId
     ? `<div style="text-align:center;margin-top:24px;">
-      <a href="${process.env.NEXT_PUBLIC_APP_URL ?? "https://aniversario-lembrate.up.railway.app"}" style="display:inline-block;background-color:#8a9a7b;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:14px 32px;border-radius:10px;">
-        Confirmar presença
+      <a href="${appUrl}/api/confirm-day?id=${guestId}" style="display:inline-block;background-color:#8a9a7b;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:14px 32px;border-radius:10px;">
+        Confirmar presença no dia
       </a>
     </div>`
     : "";

@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
         from: FROM_EMAIL,
         to: guest.email,
         subject: `🥳 É hoje! Aniversário do Victor!`,
-        html: reminderEmail(guest.name, 0, EVENT_DATE_FORMATTED),
+        html: reminderEmail(guest.name, 0, EVENT_DATE_FORMATTED, guest.id),
       });
       await db
         .update(guests)

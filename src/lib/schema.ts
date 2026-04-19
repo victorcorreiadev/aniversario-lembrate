@@ -22,6 +22,7 @@ export const guests = pgTable("guests", {
   reminder7Sent: boolean("reminder_7_sent").notNull().default(false),
   reminder3Sent: boolean("reminder_3_sent").notNull().default(false),
   reminderDaySent: boolean("reminder_day_sent").notNull().default(false),
+  confirmedDay: boolean("confirmed_day").notNull().default(false),
 });
 
 export type Guest = typeof guests.$inferSelect;

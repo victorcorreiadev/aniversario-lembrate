@@ -13,7 +13,7 @@ function ThankYouContent() {
     <main className="min-h-screen bg-[#f5f0e8] flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-lg text-center">
         <div className="text-7xl mb-6 inline-block">
-          {attending ? "🥳" : "💚"}
+          {attending ? "" : "💚"}
         </div>
 
         <p className="text-gray-700 text-lg mb-2">

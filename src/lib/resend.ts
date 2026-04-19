@@ -12,6 +12,6 @@ export function getResend(): Resend {
   return _resend;
 }
 
-export const FROM_EMAIL = "Aniversário Victor <noreply@lembrate.app>";
+export const FROM_EMAIL = "Aniversário Victor <noreply@victorcorreia.dev>";
 export const OWNER_EMAIL = process.env.OWNER_EMAIL!;
 export const EVENT_DATE = process.env.BIRTHDAY_DATE ?? "2026-05-01";

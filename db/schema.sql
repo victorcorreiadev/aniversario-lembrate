@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS guests (
   created_at       TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   reminder_7_sent  BOOLEAN NOT NULL DEFAULT FALSE,
   reminder_3_sent  BOOLEAN NOT NULL DEFAULT FALSE,
-  reminder_day_sent BOOLEAN NOT NULL DEFAULT FALSE
+  reminder_day_sent BOOLEAN NOT NULL DEFAULT FALSE,
+  confirmed_day    BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE INDEX IF NOT EXISTS idx_guests_email ON guests(email);
