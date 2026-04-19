@@ -16,10 +16,6 @@ function ThankYouContent() {
           {attending ? "🥳" : "💚"}
         </div>
 
-        <h1 className="text-4xl font-bold text-gray-900 mb-3 tracking-tight">
-          {attending ? "Incrível!" : "Tudo bem!"}
-        </h1>
-
         <p className="text-gray-700 text-lg mb-2">
           {attending
             ? `${name.split(" ")[0]}, mal posso esperar te ver!`
@@ -28,7 +24,7 @@ function ThankYouContent() {
 
         <p className="text-gray-400 text-base mb-10">
           {attending
-            ? "Você vai receber lembretes por email faltando 7 dias, 3 dias e no dia do evento."
+            ? "Você vai receber lembretes por email"
             : "Obrigado por ter respondido. Guardei seus dados para caso as coisas mudem!"}
         </p>
 

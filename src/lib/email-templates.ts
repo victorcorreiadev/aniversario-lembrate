@@ -103,10 +103,10 @@ export function reminderEmail(
 ): string {
   const isDayOf = daysLeft === 0;
   const headline = isDayOf
-    ? "É hoje! 🎉"
+    ? "É hoje! "
     : daysLeft === 1
-    ? "Amanhã é o dia! 🎂"
-    : `Faltam ${daysLeft} dias! 🗓️`;
+    ? "Amanhã é o dia! "
+    : `Faltam ${daysLeft} dias! `;
 
   const messageFormatted = isDayOf
     ? `Hoje é o dia do evento! Nos vemos mais tarde, ${name}`
